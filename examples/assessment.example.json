@@ -1,0 +1,56 @@
+{
+  "tool": "PLCSEC",
+  "tool_version": "0.6.0",
+  "schema_version": "plcsec.report.v2",
+  "assessment_type": "synthetic-passive-lab-report",
+  "started_at": "2026-11-23T08:00:00Z",
+  "completed_at": "2026-11-23T08:01:00Z",
+  "scope": {
+    "capture": "synthetic-lab-only.pcapng",
+    "active_network_requests": 0
+  },
+  "assets": [
+    {
+      "ip": "192.0.2.10",
+      "mac_addresses": ["02:00:00:00:00:10"],
+      "observed_services": [
+        {"protocol": "Modbus/TCP", "port": 502, "packets": 4, "client_to_server": 2, "server_to_client": 2}
+      ],
+      "packets_seen": 4,
+      "first_seen": "2026-11-23T08:00:00Z",
+      "last_seen": "2026-11-23T08:01:00Z",
+      "labels": ["ot_protocol_endpoint_observed"],
+      "vendor_hints": [],
+      "inventory_metadata": {"asset_id": "LAB-PLC-01", "vendor": "Owner supplied", "model": "Synthetic example", "criticality": "medium", "zone": "LAB-CONTROL"}
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "LAB-OBS-001",
+      "title": "Synthetic Modbus service observation",
+      "severity": "info",
+      "description": "Synthetic example finding for export testing. Not a vulnerability assertion.",
+      "evidence": {"ip": "192.0.2.10", "port": 502},
+      "recommendation": "Confirm expected communication with the asset owner.",
+      "confidence": "high",
+      "source": "synthetic-fixture",
+      "priority_score": 5,
+      "tags": ["synthetic", "modbus"]
+    }
+  ],
+  "metadata": {"synthetic": true},
+  "events": [],
+  "flows": [
+    {
+      "src_ip": "192.0.2.20",
+      "dst_ip": "192.0.2.10",
+      "src_port": 41000,
+      "dst_port": 502,
+      "transport": "tcp",
+      "packets": 4,
+      "bytes_observed": 512,
+      "first_seen": "2026-11-23T08:00:00Z",
+      "last_seen": "2026-11-23T08:01:00Z"
+    }
+  ]
+}

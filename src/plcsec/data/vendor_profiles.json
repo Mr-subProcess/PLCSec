@@ -1,0 +1,99 @@
+{
+  "schema": "plcsec.vendor-profiles.v1",
+  "database_version": "2026.11.23",
+  "evidence_policy": {
+    "owner_inventory": "authoritative-context-not-independent-verification",
+    "protocol_identity_object": "self-reported-device-claim",
+    "cip_vendor_id": "authoritative-only-for-explicitly-reviewed-mappings",
+    "port_or_protocol_observation": "never-sufficient-to-identify-manufacturer"
+  },
+  "cip_vendor_ids": {
+    "1": {
+      "manufacturer": "Rockwell Automation",
+      "confidence": "high",
+      "source": "ODVA vendor identity mapping; reviewed PLCSEC entry"
+    }
+  },
+  "manufacturers": [
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "aliases": ["Siemens", "SIMATIC", "S7-1200", "S7-1500", "S7-300", "S7-400", "ET 200"],
+      "model_families": ["SIMATIC S7-1200", "SIMATIC S7-1500", "SIMATIC S7-300", "SIMATIC S7-400", "ET 200"],
+      "protocol_hints": ["S7comm ISO-on-TCP"],
+      "identity_confidence": "owner-metadata-or-protocol-specific-identity-required"
+    },
+    {
+      "id": "rockwell-automation",
+      "name": "Rockwell Automation",
+      "aliases": ["Rockwell", "Allen-Bradley", "ControlLogix", "CompactLogix", "Micro800"],
+      "model_families": ["ControlLogix", "CompactLogix", "Micro800"],
+      "protocol_hints": ["EtherNet/IP", "CIP"],
+      "identity_confidence": "CIP Vendor ID 1 is an explicit reviewed mapping; model still requires device metadata"
+    },
+    {
+      "id": "schneider-electric",
+      "name": "Schneider Electric",
+      "aliases": ["Schneider", "Modicon", "M340", "M580", "Control Expert"],
+      "model_families": ["Modicon M340", "Modicon M580"],
+      "protocol_hints": ["Modbus TCP"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "mitsubishi-electric",
+      "name": "Mitsubishi Electric",
+      "aliases": ["Mitsubishi", "MELSEC", "iQ-R", "iQ-F", "FX5"],
+      "model_families": ["MELSEC iQ-R", "MELSEC iQ-F"],
+      "protocol_hints": ["MELSEC communication protocols vary by family and configuration"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "abb",
+      "name": "ABB",
+      "aliases": ["ABB", "AC500", "800xA"],
+      "model_families": ["AC500"],
+      "protocol_hints": ["Protocol support depends on CPU and communication module"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "beckhoff",
+      "name": "Beckhoff",
+      "aliases": ["Beckhoff", "TwinCAT", "CX9020", "CX2040"],
+      "model_families": ["CX embedded PCs", "TwinCAT automation platform"],
+      "protocol_hints": ["EtherCAT", "ADS", "OPC UA where configured"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "omron",
+      "name": "Omron",
+      "aliases": ["Omron", "NJ-Series", "NX-Series"],
+      "model_families": ["NJ-Series", "NX-Series"],
+      "protocol_hints": ["FINS", "EtherNet/IP on supported models"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "wago",
+      "name": "WAGO",
+      "aliases": ["WAGO", "PFC100", "PFC200"],
+      "model_families": ["PFC100", "PFC200"],
+      "protocol_hints": ["Modbus TCP on supported configurations"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "yokogawa",
+      "name": "Yokogawa",
+      "aliases": ["Yokogawa", "FA-M3", "CENTUM"],
+      "model_families": ["FA-M3", "CENTUM"],
+      "protocol_hints": ["Protocol support depends on product and gateway configuration"],
+      "identity_confidence": "owner-metadata-required"
+    },
+    {
+      "id": "emerson",
+      "name": "Emerson",
+      "aliases": ["Emerson", "ROC800", "RX3i"],
+      "model_families": ["ROC800", "PACSystems RX3i"],
+      "protocol_hints": ["Protocol support depends on controller and comms modules"],
+      "identity_confidence": "owner-metadata-required"
+    }
+  ]
+}

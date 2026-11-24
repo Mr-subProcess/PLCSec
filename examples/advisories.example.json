@@ -1,0 +1,18 @@
+{
+  "schema": "plcsec.advisories.v1",
+  "source_name": "PLCSEC synthetic test advisory feed",
+  "advisories": [
+    {
+      "advisory_id": "SYNTHETIC-OT-2026-0001",
+      "title": "Synthetic example advisory for test matching",
+      "vendor": "Example Vendor",
+      "product": "Example Controller",
+      "affected_firmware_exact": ["documented-firmware-version"],
+      "severity": "medium",
+      "cves": [],
+      "published": "2026-11-01",
+      "source_url": "https://example.invalid/security/advisories/synthetic-ot-2026-0001",
+      "recommendation": "This is synthetic data only. Replace with a vendor-published advisory and confirm applicability with the manufacturer."
+    }
+  ]
+}

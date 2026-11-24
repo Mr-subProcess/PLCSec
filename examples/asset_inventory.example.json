@@ -1,0 +1,22 @@
+{
+  "schema": "plcsec.asset-inventory.v1",
+  "site_id": "example-lab-a",
+  "assets": [
+    {
+      "asset_id": "PLC-EXAMPLE-01",
+      "ip": "192.0.2.10",
+      "hostname": "example-plc-01",
+      "vendor": "Example Vendor",
+      "model": "Example Controller",
+      "firmware": "documented-firmware-version",
+      "role": "cell-controller",
+      "owner": "controls-engineering",
+      "criticality": "high",
+      "zone": "control-zone",
+      "expected_services": [
+        {"protocol": "Modbus/TCP", "port": 502, "purpose": "approved HMI communication"}
+      ],
+      "notes": "Documentation-only entry. Replace with approved lab inventory in a private file."
+    }
+  ]
+}

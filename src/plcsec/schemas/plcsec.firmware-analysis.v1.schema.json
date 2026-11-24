@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plcsec.example/schemas/plcsec.firmware-analysis.v1.schema.json",
+  "title": "PLCSEC Offline Firmware Analysis Report",
+  "type": "object",
+  "required": ["schema", "input", "hashes", "format_hints", "entropy", "metadata_hints", "findings", "analysis_safety"],
+  "properties": {
+    "schema": {"const": "plcsec.firmware-analysis.v1"},
+    "input": {
+      "type": "object",
+      "required": ["name", "size_bytes"],
+      "properties": {"name": {"type": "string"}, "size_bytes": {"type": "integer", "minimum": 1}},
+      "additionalProperties": false
+    },
+    "hashes": {
+      "type": "object",
+      "required": ["sha256", "sha1", "md5"],
+      "properties": {
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "sha1": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "md5": {"type": "string", "pattern": "^[0-9a-f]{32}$"}
+      },
+      "additionalProperties": false
+    },
+    "format_hints": {"type": "array", "items": {"type": "string"}},
+    "entropy": {"type": "object"},
+    "metadata_hints": {"type": "object"},
+    "findings": {"type": "array", "items": {"type": "object"}},
+    "analysis_safety": {
+      "type": "object",
+      "required": ["executed", "decompressed", "filesystem_mounted", "network_access"],
+      "properties": {
+        "executed": {"const": false},
+        "decompressed": {"const": false},
+        "filesystem_mounted": {"const": false},
+        "network_access": {"const": false},
+        "note": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

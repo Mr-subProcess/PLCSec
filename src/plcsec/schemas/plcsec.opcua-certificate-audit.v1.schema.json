@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plcsec.dev/schemas/plcsec.opcua-certificate-audit.v1.schema.json",
+  "title": "PLCSEC Offline OPC UA Certificate Audit",
+  "type": "object",
+  "required": ["schema", "input", "leaf", "chain", "trust", "findings", "warnings", "validation_scope"],
+  "properties": {
+    "schema": {"const": "plcsec.opcua-certificate-audit.v1"},
+    "input": {"type": "object"},
+    "leaf": {"type": "object", "required": ["subject", "issuer", "sha256", "serial_number_hex", "not_after", "time_status", "san_uris", "san_dns_names"]},
+    "chain": {"type": "array", "items": {"type": "object"}},
+    "trust": {"type": "object", "required": ["trusted", "status", "trust_anchor_count", "revocation_checked"], "properties": {"trusted": {"type": "boolean"}, "status": {"type": "string"}, "trust_anchor_count": {"type": "integer", "minimum": 0}, "revocation_checked": {"const": false}}},
+    "findings": {"type": "array", "items": {"type": "object", "required": ["id", "severity", "detail"]}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "validation_scope": {"type": "object", "required": ["offline_only", "revocation", "result_is_full_rfc5280_validation"], "properties": {"offline_only": {"const": true}, "result_is_full_rfc5280_validation": {"const": false}}}
+  },
+  "additionalProperties": false
+}

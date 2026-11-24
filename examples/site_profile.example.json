@@ -1,0 +1,18 @@
+{
+  "schema": "plcsec.site-profile.v1",
+  "site_id": "example-ot-lab",
+  "zones": [
+    {"name": "enterprise", "cidrs": ["192.0.2.0/24"]},
+    {"name": "industrial-dmz", "cidrs": ["198.51.100.0/24"]},
+    {"name": "control", "cidrs": ["203.0.113.0/24"]}
+  ],
+  "approved_conduits": [
+    {
+      "source_zone": "industrial-dmz",
+      "destination_zone": "control",
+      "transport": "tcp",
+      "destination_port": 502,
+      "purpose": "Approved Modbus/TCP supervisory path in the isolated example lab"
+    }
+  ]
+}

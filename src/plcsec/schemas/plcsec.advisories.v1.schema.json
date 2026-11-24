@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plcsec.example/schemas/plcsec.advisories.v1.schema.json",
+  "title": "PLCSEC offline advisory feed",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "source_name", "advisories"],
+  "properties": {
+    "schema": {"const": "plcsec.advisories.v1"},
+    "source_name": {"type": "string", "minLength": 1, "maxLength": 256},
+    "advisories": {
+      "type": "array", "minItems": 1, "maxItems": 20000,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["advisory_id", "title", "vendor", "product", "affected_firmware_exact", "severity", "source_url"],
+        "properties": {
+          "advisory_id": {"type": "string", "minLength": 1, "maxLength": 128},
+          "title": {"type": "string", "minLength": 1, "maxLength": 512},
+          "vendor": {"type": "string", "minLength": 1, "maxLength": 128},
+          "product": {"type": "string", "minLength": 1, "maxLength": 256},
+          "affected_firmware_exact": {"type": "array", "minItems": 1, "maxItems": 256, "items": {"type": "string", "minLength": 1, "maxLength": 128}},
+          "severity": {"enum": ["info", "low", "medium", "high", "critical"]},
+          "source_url": {"type": "string", "format": "uri", "pattern": "^https://", "maxLength": 2048},
+          "recommendation": {"type": "string", "maxLength": 4096},
+          "cves": {"type": "array", "maxItems": 64, "items": {"type": "string", "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"}},
+          "published": {"type": "string", "format": "date"}
+        }
+      }
+    }
+  }
+}

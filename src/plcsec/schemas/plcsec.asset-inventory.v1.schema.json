@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plcsec.example/schemas/plcsec.asset-inventory.v1.schema.json",
+  "title": "PLCSEC Asset Inventory v1",
+  "description": "Owner-maintained OT asset inventory used to enrich passive PLCSEC observations.",
+  "type": "object",
+  "required": ["schema", "site_id", "assets"],
+  "properties": {
+    "schema": {"const": "plcsec.asset-inventory.v1"},
+    "site_id": {"type": "string", "minLength": 1},
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "required": ["asset_id", "ip"],
+        "properties": {
+          "asset_id": {"type": "string", "minLength": 1, "maxLength": 128},
+          "ip": {"type": "string", "oneOf": [{"format": "ipv4"}, {"format": "ipv6"}]},
+          "hostname": {"type": "string", "maxLength": 1024},
+          "vendor": {"type": "string", "maxLength": 1024},
+          "model": {"type": "string", "maxLength": 1024},
+          "firmware": {"type": "string", "maxLength": 1024},
+          "role": {"type": "string", "maxLength": 1024},
+          "owner": {"type": "string", "maxLength": 1024},
+          "criticality": {"type": "string", "enum": ["low", "medium", "high", "critical", "safety"]},
+          "zone": {"type": "string", "maxLength": 1024},
+          "notes": {"type": "string", "maxLength": 1024},
+          "expected_services": {
+            "type": "array",
+            "maxItems": 1024,
+            "items": {
+              "type": "object",
+              "required": ["protocol", "port"],
+              "properties": {
+                "protocol": {"type": "string", "minLength": 1},
+                "port": {"type": "integer", "minimum": 1, "maximum": 65535},
+                "purpose": {"type": "string"}
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

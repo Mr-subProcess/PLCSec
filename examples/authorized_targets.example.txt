@@ -1,0 +1,4 @@
+# Documentation-only examples. Replace with explicitly approved lab targets.
+# These addresses are TEST-NET ranges reserved for documentation.
+192.0.2.10
+198.51.100.0/24

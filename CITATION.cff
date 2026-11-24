@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use PLCSEC in research, cite this software release and include the exact version and capture-analysis scope. Do not include sensitive operational data in citations."
+title: "PLCSEC: Industrial Controller Security Assessment Framework"
+version: 0.6.0
+date-released: 2026-11-23
+type: software
+license: MIT
+abstract: >-
+  PLCSEC is a safety-first Python framework for passive industrial control
+  system protocol analysis, OT asset inventory reconciliation, site-profile
+  review, baseline drift, Ed25519-signed evidence and approvals, bounded
+  offline firmware container metadata inspection, offline OPC UA application
+  certificate path review, read-only identity checks, STIX/CEF integration,
+  DNP3 CRC validation, offline advisory correlation and a signed-checkpoint-
+  capable evidence ledger.
+keywords:
+  - operational technology
+  - industrial control systems
+  - PLC security
+  - passive network analysis
+  - Modbus TCP
+  - S7comm
+  - EtherNet/IP
+  - OPC UA
+  - firmware analysis
+  - Ed25519
+  - signed evidence

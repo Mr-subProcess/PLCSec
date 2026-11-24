@@ -1,0 +1,8 @@
+include README.md LICENSE CHANGELOG.md CITATION.cff VERSION BUILD.md RUN_KALI.md RELEASE_SUMMARY.md SECURITY.md THIRD_PARTY_NOTICES.md CONTRIBUTING.md GITHUB_PUBLISHING.md Makefile requirements-dev.txt requirements-pcap.txt requirements-s7.txt
+recursive-include docs *.md
+recursive-include tests *.py
+recursive-include examples *.json *.txt *.sh *.py
+recursive-include .github *.yml *.md
+recursive-include src/plcsec/schemas *.json
+
+recursive-include src/plcsec/data *.json
